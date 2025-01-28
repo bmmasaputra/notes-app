@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import NoteCard from './NoteCard.jsx';
 
 function NotesList({ notes, isArchive, onDelete, onArchive, onMove }) {
-  // Check if there are no notes
-  if (notes.length === 0) {
+  const filteredNotes = notes.filter((note) => (isArchive ? note.archived : !note.archived));
+
+  if (filteredNotes.length === 0) {
     return (
       <div className="notes-list">
         <div className="notes-list__empty-message">
@@ -15,19 +16,20 @@ function NotesList({ notes, isArchive, onDelete, onArchive, onMove }) {
     );
   }
 
+  const secondaryAction = isArchive ? 'Move' : 'Archive';
+  const onSecondaryAction = isArchive ? onMove : onArchive;
+
   return (
     <div className="notes-list">
-      {notes
-        .filter((note) => (isArchive ? note.archived : !note.archived))
-        .map((note) => (
-          <NoteCard
-            key={note.id}
-            onDelete={onDelete}
-            secondaryAction={isArchive ? 'Move' : 'Archive'}
-            onSecondaryAction={isArchive ? onMove : onArchive}
-            {...note}
-          />
-        ))}
+      {filteredNotes.map((note) => (
+        <NoteCard
+          key={note.id}
+          onDelete={onDelete}
+          secondaryAction={secondaryAction}
+          onSecondaryAction={onSecondaryAction}
+          {...note}
+        />
+      ))}
     </div>
   );
 }

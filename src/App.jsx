@@ -15,11 +15,22 @@ class App extends React.Component {
     this.onMoveEventHandler = this.onMoveEventHandler.bind(this);
   }
 
-  onDeleteEventHandler(event) {}
+  onDeleteEventHandler(id) {
+    const notes = this.state.notes.filter((note) => note.id !== id);
+    this.setState({ notes });
+  }
 
-  onArchiveEventHandler(event) {}
+  onArchiveEventHandler(id) {
+    this.setState((prevState) => ({
+      notes: prevState.notes.map((note) => (note.id === id ? { ...note, archived: true } : note)),
+    }));
+  }
 
-  onMoveEventHandler(event) {}
+  onMoveEventHandler(id) {
+    this.setState((prevState) => ({
+      notes: prevState.notes.map((note) => (note.id === id ? { ...note, archived: false } : note)),
+    }));
+  }
 
   render() {
     return (
