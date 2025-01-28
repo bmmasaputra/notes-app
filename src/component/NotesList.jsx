@@ -9,8 +9,8 @@ function NotesList({ notes, isArchive, onDelete, onArchive, onMove }) {
     return (
       <div className="notes-list">
         <div className="notes-list__empty-message">
-          <img src="https://via.placeholder.com/150" alt="No Notes Available" />
-          <p>No notes available</p>
+          <img src="/empty.svg" alt="No Notes Available" />
+          <h3>No notes available</h3>
         </div>
       </div>
     );

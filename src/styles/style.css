@@ -1,5 +1,5 @@
 :root {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -11,4 +11,35 @@
   /* padding: 0;
   margin: 0; */
   box-sizing: border-box;
+}
+
+.note-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-input input,
+.note-input textarea,
+.note-input button {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.notes-list__empty-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.notes-list__empty-message img {
+  width: 300px;
+}
+
+.notes-list__empty-message p {
+  text-align: center;
 }
