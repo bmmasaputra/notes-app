@@ -21,7 +21,7 @@ function NoteCard({ id, title, createdAt, body, onDelete, secondaryAction, onSec
 
 // Prop Validation
 NoteCard.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,

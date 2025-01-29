@@ -14,7 +14,7 @@ function ActionButton({ id, type, action }) {
 }
 
 ActionButton.propTypes = {
-  id: PropTypes.string.isRequired, // Ensure 'id' is a string
+  id: PropTypes.number.isRequired, // Ensure 'id' is a string
   type: PropTypes.oneOf(['delete', 'Archive', 'Move']).isRequired, // Restrict 'type' to specific values
   action: PropTypes.func.isRequired, // Ensure 'action' is a function
 };
