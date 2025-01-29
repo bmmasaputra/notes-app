@@ -7,6 +7,7 @@ class NoteInput extends React.Component {
     this.state = {
       title: '',
       body: '',
+      titleLimit: 50,
     };
 
     this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
@@ -15,7 +16,12 @@ class NoteInput extends React.Component {
   }
 
   onTitleChangeEventHandler(event) {
-    this.setState(() => ({ title: event.target.value }));
+    const inputTitle = event.target.value;
+    if (inputTitle.length <= this.state.titleLimit) {
+      this.setState(() => ({ title: inputTitle }));
+    } else {
+      alert('Note title can not exceed 50 character');
+    }
   }
 
   onBodyChangeEventHandler(event) {
@@ -32,8 +38,15 @@ class NoteInput extends React.Component {
   }
 
   render() {
+    const remainingChars = this.state.titleLimit - this.state.title.length;
     return (
       <form className="note-input" onSubmit={this.onSubmitEventHandler}>
+        <p
+          className="note-input__title__char-limit"
+          style={{ color: remainingChars === 0 ? 'red' : 'inherit' }}
+        >
+          Remaining characters: {remainingChars}
+        </p>
         <input
           type="text"
           placeholder="Title"
