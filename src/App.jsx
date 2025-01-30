@@ -60,29 +60,37 @@ class App extends React.Component {
     return (
       <>
         <header>
-          <h1>Notes App</h1>
+          <h1>NotesApp</h1>
           <SearchField onSearch={this.onSearchEventHandler}></SearchField>
         </header>
-        <h2>Add New Note</h2>
-        <NoteInput addNote={this.onAddNoteEventHandler}></NoteInput>
-        <h2>Active Notes</h2>
-        <NotesList
-          notes={this.state.notes}
-          isArchive={false}
-          search={this.state.search}
-          onDelete={this.onDeleteEventHandler}
-          onArchive={this.onArchiveEventHandler}
-          onMove={this.onMoveEventHandler}
-        ></NotesList>
-        <h2>Archived Notes</h2>
-        <NotesList
-          notes={this.state.notes}
-          isArchive={true}
-          search={this.state.search}
-          onDelete={this.onDeleteEventHandler}
-          onArchive={this.onArchiveEventHandler}
-          onMove={this.onMoveEventHandler}
-        ></NotesList>
+        <aside className="input-section">
+          <h2>Add New Note</h2>
+          <NoteInput addNote={this.onAddNoteEventHandler}></NoteInput>
+        </aside>
+        <main className="notes-section">
+          <section>
+            <h2>Active Notes</h2>
+            <NotesList
+              notes={this.state.notes}
+              isArchive={false}
+              search={this.state.search}
+              onDelete={this.onDeleteEventHandler}
+              onArchive={this.onArchiveEventHandler}
+              onMove={this.onMoveEventHandler}
+            ></NotesList>
+          </section>
+          <section>
+            <h2>Archived Notes</h2>
+            <NotesList
+              notes={this.state.notes}
+              isArchive={true}
+              search={this.state.search}
+              onDelete={this.onDeleteEventHandler}
+              onArchive={this.onArchiveEventHandler}
+              onMove={this.onMoveEventHandler}
+            ></NotesList>
+          </section>
+        </main>
       </>
     );
   }

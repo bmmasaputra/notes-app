@@ -41,19 +41,21 @@ class NoteInput extends React.Component {
     const remainingChars = this.state.titleLimit - this.state.title.length;
     return (
       <form className="note-input" onSubmit={this.onSubmitEventHandler}>
-        <p
-          className="note-input__title__char-limit"
-          style={{ color: remainingChars === 0 ? 'red' : 'inherit' }}
-        >
-          Remaining characters: {remainingChars}
-        </p>
-        <input
-          type="text"
-          placeholder="Title"
-          value={this.state.title}
-          className="note-input__title"
-          onChange={this.onTitleChangeEventHandler}
-        />
+        <div>
+          <input
+            type="text"
+            placeholder="Title"
+            value={this.state.title}
+            className="note-input__title"
+            onChange={this.onTitleChangeEventHandler}
+          />
+          <p
+            className="note-input__title__char-limit"
+            style={{ color: remainingChars === 0 ? 'red' : 'inherit' }}
+          >
+            {remainingChars}
+          </p>
+        </div>
         <textarea
           rows={5}
           type="text"

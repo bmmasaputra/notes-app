@@ -11,11 +11,9 @@ function NotesList({ notes, isArchive, search, onDelete, onArchive, onMove }) {
 
   if (filteredNotes.length === 0) {
     return (
-      <div className="notes-list">
-        <div className="notes-list__empty-message">
-          <img src="/empty.svg" alt="No Notes Available" />
-          <h3>No notes available</h3>
-        </div>
+      <div className="notes-list__empty-message">
+        <img src="/empty.svg" alt="No Notes Available" />
+        <h3>No notes available</h3>
       </div>
     );
   }
