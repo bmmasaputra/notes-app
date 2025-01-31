@@ -11,8 +11,7 @@
 
 ## 🎥 Preview
 
-![NoteApp Preview](./preview.png)  
-_(Add a screenshot or GIF showcasing the app!)_
+![NoteApp Preview](./public/preview.png)  
 
 ## 🛠️ Tech Stack
  
