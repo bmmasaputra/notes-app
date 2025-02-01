@@ -57,7 +57,6 @@ class NoteInput extends React.Component {
           </p>
         </div>
         <textarea
-          rows={23}
           type="text"
           placeholder="Body"
           value={this.state.body}
